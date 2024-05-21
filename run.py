@@ -12,13 +12,17 @@ def print_board(board):
     for row in board:
         print(" ".join(row))
 
-def place_ships(board, size):
+def place_ships(board, size, num_ships):
     """
     Place ships randomly on the game board
     """
-    ship_row = random.randint(0, size - 1)
-    ship_col = random.randint(0, size - 1)
-    return ship_row, ship_col
+    ships = []
+    while len(ships) < num_ships:
+        ship_row = random.randint(0, size - 1)
+        ship_col = random.randint(0, size - 1)
+        if (ship_row, ship_col) not in ships:
+            ships.append((ship_row, ship_col))
+    return ships
 
 def get_user_guess(size):
     """
@@ -35,12 +39,13 @@ def get_user_guess(size):
         except ValueError:
             print("Invalid input, you must enter an integer")
 
-def check_guess(guess_row,guess_col,ship_row,ship_col):
+def check_guess(guess_row, guess_col, ships):
     """
     Check user's guess to see if they hit a battleship
     """
-    if guess_row == ship_row and guess_col == ship_col:
-        print('You sunk the battleship!')
+    if (guess_row, guess_col) in ships:
+        print('You hit a battleship!')
+        ships.remove((guess_row, guess_col))
         return True
     else:
         print("You didn't hit a battleship")
@@ -55,27 +60,27 @@ def update_board(board, guess_row, guess_col, hit):
     else:
         board[guess_row][guess_col] = '0'
 
-def is_game_over(board):
+def is_game_over(ships):
     """
     Check if all battleships have been sunk meaning game is over
     """
-    for row in board:
-        if '~' in row:
-            return False
-    return True
+    return len(ships) == 0
+
 
 def play_game():
-    print("Let's play Battleships!\nGuess a row and column number\nto find a battleship to sink!")
+    print("Let's play Battleships!\nGuess a row and column number\nto find and sink the battleships!")
     size = 8
+    num_ships = 4
     board = create_board(size)
-    ship_row, ship_col = place_ships(board, size)
+    ships = place_ships(board, size, num_ships)
     game_over = False
     while not game_over:
         print_board(board)
         guess_row, guess_col = get_user_guess(size)
-        hit = check_guess(guess_row,guess_col,ship_row,ship_col)
-        update_board(board,guess_row,guess_col,hit)
-        game_over = is_game_over(board)
-    print('Game over!')
+        hit = check_guess(guess_row, guess_col, ships)
+        update_board(board, guess_row, guess_col, hit)
+        game_over = is_game_over(ships)
+    print('Game over! All battleships have been sunk!')
+
 if __name__ == '__main__':
     play_game()
