@@ -34,3 +34,13 @@ def get_user_guess(size):
         except ValueError:
             print("Invalid input, you must enter an integer")
 
+def check_guess(guess_row,guess_col,ship_row,ship_col):
+    """
+    Check user's guess to see if they hit a battleship
+    """
+    if guess_row == ship_row and guess_col == ship_col:
+        print('You sunk the battleship!')
+        return True
+    else:
+        print("You didn't hit a battleship")
+        return False
