@@ -54,7 +54,7 @@ def update_board(board, guess_row, guess_col, hit):
     else:
         board[guess_row][guess_col] = '-'
 
-def game_over(board):
+def is_game_over(board):
     """
     Check if all battleships have been sunk meaning game is over
     """
@@ -62,3 +62,19 @@ def game_over(board):
         if '~' in row:
             return False
     return True
+
+def play_game():
+    print("Let's play Battleships!\nGuess a row and column number\nto find a battleship to sink!")
+    size = 8
+    board = create_board(size)
+    ship_row, ship_col = place_ships(board_size)
+    game_over = False
+    while not game_over:
+        print_board(board)
+        guess_row, guess_col = get_user_guess(size)
+        hit = check_guess(guess_row,guess_col,ship_row,ship_col)
+        update_board(board,guess_row,guess_col,hit)
+        game_over = is_game_over(board)
+    print('Game over!')
+if __name__ == '__main__':
+    play_game()
