@@ -44,3 +44,12 @@ def check_guess(guess_row,guess_col,ship_row,ship_col):
     else:
         print("You didn't hit a battleship")
         return False
+
+def update_board(board, guess_row, guess_col, hit):
+    """
+    Update the board according to the user's guesses
+    """
+    if hit:
+        board[guess_row][guess_col] = 'X'
+    else:
+        board[guess_row][guess_col] = '-'
