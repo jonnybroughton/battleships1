@@ -53,3 +53,12 @@ def update_board(board, guess_row, guess_col, hit):
         board[guess_row][guess_col] = 'X'
     else:
         board[guess_row][guess_col] = '-'
+
+def game_over(board):
+    """
+    Check if all battleships have been sunk meaning game is over
+    """
+    for row in board:
+        if '~' in row:
+            return False
+    return True
