@@ -27,10 +27,11 @@ def get_user_guess(size):
     while True:
         try:
             guess_row = int(input(f"Guess Row (0-{size-1}): "))
-            guess_col = int(input(f"Guess Column (0-{size-1}): )"))
+            guess_col = int(input(f"Guess Column (0-{size-1}): "))
             if 0 <= guess_row < size and 0 <= guess_col < size:
                 return guess_row, guess_col
-            else: print(f"You must enter values between 0 and {size-1}")
+            else: 
+                print(f"You must enter values between 0 and {size-1}")
         except ValueError:
             print("Invalid input, you must enter an integer")
 
@@ -52,7 +53,7 @@ def update_board(board, guess_row, guess_col, hit):
     if hit:
         board[guess_row][guess_col] = 'X'
     else:
-        board[guess_row][guess_col] = '-'
+        board[guess_row][guess_col] = '0'
 
 def is_game_over(board):
     """
@@ -67,7 +68,7 @@ def play_game():
     print("Let's play Battleships!\nGuess a row and column number\nto find a battleship to sink!")
     size = 8
     board = create_board(size)
-    ship_row, ship_col = place_ships(board_size)
+    ship_row, ship_col = place_ships(board, size)
     game_over = False
     while not game_over:
         print_board(board)
