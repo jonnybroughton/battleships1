@@ -9,8 +9,10 @@ def print_board(board):
     """
     Print the current game board
     """
-    for row in board:
-        print(" ".join(row))
+    size = len(board)
+    print("  " + " ".join(str(i) for i in range(size)))
+    for idx, row in enumerate(board):
+        print(f"{idx} " + " ".join(row))
 
 def place_ships(board, size, num_ships):
     """
