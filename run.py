@@ -60,7 +60,7 @@ def update_board(board, guess_row, guess_col, hit):
     if hit:
         board[guess_row][guess_col] = 'X'
     else:
-        board[guess_row][guess_col] = '0'
+        board[guess_row][guess_col] = ' '
 
 def is_game_over(ships):
     """
@@ -70,19 +70,37 @@ def is_game_over(ships):
 
 
 def play_game():
+    """
+    This function initialises all game functions
+    """
     print("Let's play Battleships!\nGuess a row and column number\nto find and sink the battleships!")
     size = 8
     num_ships = 4
+    max_guesses = size * 2  
     board = create_board(size)
     ships = place_ships(board, size, num_ships)
+    guesses = 0  
     game_over = False
-    while not game_over:
+
+    while not game_over and guesses < max_guesses:
         print_board(board)
+        print(f"Ships remaining: {len(ships)}")
         guess_row, guess_col = get_user_guess(size)
         hit = check_guess(guess_row, guess_col, ships)
         update_board(board, guess_row, guess_col, hit)
+        guesses += 1
         game_over = is_game_over(ships)
-    print('Game over! All battleships have been sunk!')
+        print(f"Guesses remaining: {max_guesses - guesses}")
+    if game_over:
+        print('Game over! All battleships have been sunk!')
+    else:
+        print('Game over! You ran out of guesses!')
+    
+    play_again = input("Would you like to play again? (yes/no): ").strip().lower()
+    if play_again == 'yes':
+        play_game()
+    else:
+        print("Thanks for playing!")
 
 if __name__ == '__main__':
     play_game()
