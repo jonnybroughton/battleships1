@@ -103,7 +103,7 @@ def play_game():
     print("Let's play Battleships!\nGuess a row and column number\nto find and sink the battleships!")
     size = get_board_size()  
     num_ships = get_num_ships(size)
-    max_guesses = size * 2
+    max_guesses = size * 3
     board = create_board(size)
     ships = place_ships(board, size, num_ships)
     guesses = 0
