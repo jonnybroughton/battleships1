@@ -40,7 +40,7 @@ def get_user_guess(size):
                 print(f"You must enter values between 0 and {size-1}")
         except ValueError:
             print("Invalid input, you must enter an integer")
-
+            
 def check_guess(guess_row, guess_col, ships):
     """
     Check user's guess to see if they hit a battleship
@@ -68,18 +68,45 @@ def is_game_over(ships):
     """
     return len(ships) == 0
 
+def get_board_size():
+    """
+    Ask the user to input the size of the board for the game
+    """
+    while True:
+        try:
+            size = int(input("Enter the board size (e.g., 8 for 8x8): "))
+            if size > 0:
+                return size
+            else:
+                print("Board size must be a positive integer.")
+        except ValueError:
+            print("Invalid input, you must enter a positive integer")
+            
+def get_num_ships(size):
+    """
+    Ask the user how many ships they want to try to sink
+    """
+    while True:
+        try:
+            num_ships = int(input(f"Enter the number of ships you wish to find: (e.g. 6): "))
+            if 0 < num_ships < size * size:
+                return num_ships
+            else:
+                print(f"Number of ships must be a positive integer less than {size * size}.")
+        except ValueError:
+            print("Invalid input, you must enter a positive integer.")
 
 def play_game():
     """
-    This function initialises all game functions
+    This function initializes and manages the game of Battleships.
     """
     print("Let's play Battleships!\nGuess a row and column number\nto find and sink the battleships!")
-    size = 8
-    num_ships = 7
-    max_guesses = size * 2  
+    size = get_board_size()  
+    num_ships = get_num_ships(size)
+    max_guesses = size * 2
     board = create_board(size)
     ships = place_ships(board, size, num_ships)
-    guesses = 0  
+    guesses = 0
     game_over = False
 
     while not game_over and guesses < max_guesses:
