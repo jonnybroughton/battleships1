@@ -57,11 +57,11 @@ def check_guess(guess_row, guess_col, ships):
     Check user's guess to see if they hit a battleship
     """
     if (guess_row, guess_col) in ships:
-        print('You hit a battleship!')
+        print('You hit a battleship!\n')
         ships.remove((guess_row, guess_col))
         return True
     else:
-        print("You didn't hit a battleship")
+        print("You didn't hit a battleship.\n")
         return False
 
 
@@ -122,7 +122,7 @@ def play_game():
     """
     This function initializes and manages the game of Battleships.
     """
-    print("Let's play Battleships!\nGuess a row and column number\nto find and sink the battleships!")
+    print("Let's play Battleships!\nGuess a row and column number\nto find and sink the battleships!\n")
     size = get_board_size()  
     num_ships = get_num_ships(size)
     max_guesses = size * 3
@@ -132,24 +132,25 @@ def play_game():
     game_over = False
 
     while not game_over and guesses < max_guesses:
+        print('\n')
         print_board(board)
-        print(f"Ships remaining: {len(ships)}")
+        print(f"Ships remaining: {len(ships)}\n")
         guess_row, guess_col = get_user_guess(size)
         hit = check_guess(guess_row, guess_col, ships)
         update_board(board, guess_row, guess_col, hit)
         guesses += 1
         game_over = is_game_over(ships)
-        print(f"Guesses remaining: {max_guesses - guesses}")
+        print(f"Guesses remaining: {max_guesses - guesses}\n")
     if game_over:
-        print('Game over! All battleships have been sunk!')
+        print('Game over! All battleships have been sunk!\n')
     else:
-        print('Game over! You ran out of guesses!')
+        print('Game over! You ran out of guesses!\n')
     
     play_again = input("Would you like to play again? (yes/no): ").strip().lower()
     if play_again == 'yes':
         play_game()
     else:
-        print("Thanks for playing!")
+        print("Thanks for playing!\n")
 
 if __name__ == '__main__':
     play_game()
