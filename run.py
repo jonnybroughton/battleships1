@@ -1,9 +1,14 @@
 import random
+
+
+
 def create_board(size):
     """
     Create the game board
     """
     return [["~"] * size for i in range(size)]
+
+
 
 def print_board(board):
     """
@@ -13,6 +18,8 @@ def print_board(board):
     print("  " + " ".join(str(i) for i in range(size)))
     for idx, row in enumerate(board):
         print(f"{idx} " + " ".join(row))
+
+
 
 def place_ships(board, size, num_ships):
     """
@@ -25,6 +32,8 @@ def place_ships(board, size, num_ships):
         if (ship_row, ship_col) not in ships:
             ships.append((ship_row, ship_col))
     return ships
+
+
 
 def get_user_guess(size):
     """
@@ -40,7 +49,9 @@ def get_user_guess(size):
                 print(f"You must enter values between 0 and {size-1}")
         except ValueError:
             print("Invalid input, you must enter an integer")
-            
+
+
+
 def check_guess(guess_row, guess_col, ships):
     """
     Check user's guess to see if they hit a battleship
@@ -53,6 +64,8 @@ def check_guess(guess_row, guess_col, ships):
         print("You didn't hit a battleship")
         return False
 
+
+
 def update_board(board, guess_row, guess_col, hit):
     """
     Update the board according to the user's guesses
@@ -62,11 +75,15 @@ def update_board(board, guess_row, guess_col, hit):
     else:
         board[guess_row][guess_col] = ' '
 
+
+
 def is_game_over(ships):
     """
     Check if all battleships have been sunk meaning game is over
     """
     return len(ships) == 0
+
+
 
 def get_board_size():
     """
@@ -82,6 +99,8 @@ def get_board_size():
         except ValueError:
             print("Invalid input, you must enter a positive integer")
             
+
+
 def get_num_ships(size):
     """
     Ask the user how many ships they want to try to sink
@@ -95,6 +114,9 @@ def get_num_ships(size):
                 print(f"Number of ships must be a positive integer less than {size * size}.")
         except ValueError:
             print("Invalid input, you must enter a positive integer.")
+
+
+
 
 def play_game():
     """
