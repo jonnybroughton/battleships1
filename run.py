@@ -1,13 +1,11 @@
 import random
 
 
-
 def create_board(size):
     """
     Create the game board
     """
     return [["~"] * size for i in range(size)]
-
 
 
 def print_board(board):
@@ -18,7 +16,6 @@ def print_board(board):
     print("  " + " ".join(str(i) for i in range(size)))
     for idx, row in enumerate(board):
         print(f"{idx} " + " ".join(row))
-
 
 
 def place_ships(board, size, num_ships):
@@ -34,7 +31,6 @@ def place_ships(board, size, num_ships):
     return ships
 
 
-
 def get_user_guess(size):
     """
     Get the user to input their guess
@@ -45,11 +41,10 @@ def get_user_guess(size):
             guess_col = int(input(f"Guess Column (0-{size-1}): "))
             if 0 <= guess_row < size and 0 <= guess_col < size:
                 return guess_row, guess_col
-            else: 
+            else:
                 print(f"You must enter values between 0 and {size-1}")
         except ValueError:
             print("Invalid input, you must enter an integer")
-
 
 
 def check_guess(guess_row, guess_col, ships):
@@ -65,7 +60,6 @@ def check_guess(guess_row, guess_col, ships):
         return False
 
 
-
 def update_board(board, guess_row, guess_col, hit):
     """
     Update the board according to the user's guesses
@@ -76,13 +70,11 @@ def update_board(board, guess_row, guess_col, hit):
         board[guess_row][guess_col] = ' '
 
 
-
 def is_game_over(ships):
     """
     Check if all battleships have been sunk meaning game is over
     """
     return len(ships) == 0
-
 
 
 def get_board_size():
@@ -91,14 +83,14 @@ def get_board_size():
     """
     while True:
         try:
-            size = int(input("Enter the board size (e.g., 8 for 8x8, maximum 10): "))
+            size = int(input("Enter the board size (e.g., 8 for 8x8, "
+                             "maximum 10): "))
             if 1 <= size <= 10:
                 return size
             else:
                 print("Board size must be an integer between 1 and 10.")
         except ValueError:
             print("Invalid input, you must enter a positive integer.")
-            
 
 
 def get_num_ships(size):
@@ -107,23 +99,25 @@ def get_num_ships(size):
     """
     while True:
         try:
-            num_ships = int(input(f"Enter the number of ships you wish to find: (e.g. 6): "))
+            num_ships = int(input("Enter the number of ships you wish to find "
+                                  "(e.g., 6): "))
             if 0 < num_ships < size * size:
                 return num_ships
             else:
-                print(f"Number of ships must be a positive integer less than {size * size}.")
+                print(f"Number of ships must be a positive integer less than "
+                      f"{size * size}.")
         except ValueError:
             print("Invalid input, you must enter a positive integer.")
-
-
 
 
 def play_game():
     """
     This function initializes and manages the game of Battleships.
     """
-    print("Let's play Battleships!\nGuess a row and column number\nto find and sink the battleships!\n")
-    size = get_board_size()  
+    print("Let's play Battleships!\n"
+          "Guess a row and column number\n"
+          "to find and sink the battleships!\n")
+    size = get_board_size()
     num_ships = get_num_ships(size)
     max_guesses = size * 3
     board = create_board(size)
@@ -132,25 +126,26 @@ def play_game():
     game_over = False
 
     while not game_over and guesses < max_guesses:
-        print('\n')
         print_board(board)
-        print(f"Ships remaining: {len(ships)}\n")
+        print(f"Ships remaining: {len(ships)}")
         guess_row, guess_col = get_user_guess(size)
         hit = check_guess(guess_row, guess_col, ships)
         update_board(board, guess_row, guess_col, hit)
         guesses += 1
         game_over = is_game_over(ships)
-        print(f"Guesses remaining: {max_guesses - guesses}\n")
+        print(f"Guesses remaining: {max_guesses - guesses}")
     if game_over:
-        print('Game over! All battleships have been sunk!\n')
+        print('Game over! All battleships have been sunk!')
     else:
-        print('Game over! You ran out of guesses!\n')
-    
-    play_again = input("Would you like to play again? (yes/no): ").strip().lower()
+        print('Game over! You ran out of guesses!')
+
+    play_again = input("Would you like to play again? "
+                       "(yes/no): ").strip().lower()
     if play_again == 'yes':
         play_game()
     else:
-        print("Thanks for playing!\n")
+        print("Thanks for playing!")
+
 
 if __name__ == '__main__':
     play_game()
