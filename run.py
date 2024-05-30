@@ -38,13 +38,24 @@ def get_user_guess(size):
     while True:
         try:
             guess_row = int(input(f"Guess Row (0-{size-1}): "))
-            guess_col = int(input(f"Guess Column (0-{size-1}): "))
-            if 0 <= guess_row < size and 0 <= guess_col < size:
-                return guess_row, guess_col
+            if 0 <= guess_row < size:
+                break
             else:
-                print(f"You must enter values between 0 and {size-1}")
+                print(f"Row must be between 0 and {size-1}")
         except ValueError:
             print("Invalid input, you must enter an integer")
+
+    while True:
+        try:
+            guess_col = int(input(f"Guess Column (0-{size-1}): "))
+            if 0 <= guess_col < size:
+                break
+            else:
+                print(f"Column must be between 0 and {size-1}")
+        except ValueError:
+            print("Invalid input, you must enter an integer")
+
+    return guess_row, guess_col
 
 
 def check_guess(guess_row, guess_col, ships):
@@ -150,4 +161,3 @@ def play_game():
 
 if __name__ == '__main__':
     play_game()
-    
