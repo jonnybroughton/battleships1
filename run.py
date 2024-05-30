@@ -134,6 +134,7 @@ def play_game():
         guesses += 1
         game_over = is_game_over(ships)
         print(f"Guesses remaining: {max_guesses - guesses}")
+    print_board(board)
     if game_over:
         print('Game over! All battleships have been sunk!')
     else:
