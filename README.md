@@ -68,3 +68,24 @@ The Battleships game is designed to provide an engaging and interactive experien
 - Provides a seamless and structured gameplay experience
 - Ensures all game components work together correctly
 - Offers replayability by prompting the user to play again, enhancing engagement and enjoyment
+
+## Planning
+To aid with creating the game, so that it can be recreated by someone else, I developed this flowchart that outlines the flow and decisions involved in the game.
+
+![image](assets/images/flow-diagram.jpeg)
+
+The flowchart serves as a visual representation of the game's structure, illustrating the sequence of operations and decision points in the game. This helps developers understand the overall flow and logic of the program, making it easier to identify key components and their interactions. Additionally, the flowchart facilitates debugging and enhancement of the program by clearly mapping out each step and decision point. It acts as a guide for implementing the game, ensuring that all necessary steps are covered and properly sequenced, and enhances communication among team members by providing a clear and concise visual representation of the game's logic.
+
+## Testing
+
+Originally, I began testing the game throughout the development process through Gitpod's built in terminal. The program can be ran in the gitpod terminal by entering 'python3 run.py' (without apostrophes) and the program will begin.
+
+In the terminal, I began by setting the size for the game and the amount of ships to be a fixed number within the code, however, through testing, I found it would create a more positive user experience to allow the user to input these figures themselves, so that they can determine how challenging they want the game to be.
+
+The user is limited in their guesses to provide a greater challenge. If this was not implemented, the user would be able to guess infinitely and win the game every time. The amount of guesses is equal to three times the size of the board. For example, if the user wants a board size of 8 rows by 8 columns, they are given 8 * 3 = 24 guesses. This enables the user a proportionate amount of guesses while still posing the risk of running out of guesses before they have found every battleship.
+
+As the command line / terminal is somewhat basic and primitive in visual representation of the game, I felt it was necessary to include numbered markers for each row and column, which makes guessing grid numbers far easier for the user.
+
+When moving over to the deployment of the game, the terminal is actually limited to 80 columns by 24 lines, which means that each line of text needs to be 80 characters or less or else it will be wrapped onto a second line. This presents an issue when allowing the user to input their desired size of the grid, as having information wrap to a new line disrupts how the grid is presented, making deciding on which cell to choose difficult as they fall out of alignment with the grid numbers that represent the column and row. Because of this constraint, I needed to set a limit of 10x10 grid size so the user experience isn't affected.
+
+## Deployment
