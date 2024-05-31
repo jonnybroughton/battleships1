@@ -5,7 +5,7 @@ def create_board(size):
     """
     Create the game board
     """
-    return [["~"] * size for i in range(size)]
+    return [["~"] * size for _ in range(size)]
 
 
 def print_board(board):
@@ -57,6 +57,16 @@ def get_user_guess(size):
 
     return guess_row, guess_col
 
+def computer_guess(size, previous_guesses):
+    """
+    Generate a computer's guess
+    """
+    while True:
+        guess_row = random.randint(0, size - 1)
+        guess_col = random.randint(0, size - 1)
+        if (guess_row, guess_col) not in previous_guesses:
+            break
+    return guess_row, guess_col
 
 def check_guess(guess_row, guess_col, ships):
     """
