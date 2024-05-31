@@ -58,6 +58,7 @@ def get_user_guess(size):
 
     return guess_row, guess_col
 
+
 def computer_guess(size, previous_guesses):
     """
     Generate a computer's guess
@@ -69,6 +70,7 @@ def computer_guess(size, previous_guesses):
             previous_guesses.append((guess_row, guess_col))
             break
     return guess_row, guess_col
+
 
 def check_guess(guess_row, guess_col, ships, player=""):
     """
@@ -158,19 +160,26 @@ def play_game():
         print_board(computer_board, title="Computer Grid:")
 
         user_guess_row, user_guess_col = get_user_guess(size)
-        user_hit = check_guess(user_guess_row, user_guess_col, computer_ships, "User")
+        user_hit = check_guess(
+            user_guess_row, user_guess_col, computer_ships, "User")
         update_board(computer_board, user_guess_row, user_guess_col, user_hit)
         guesses_remaining -= 1
 
         computer_guess_row, computer_guess_col = computer_guess(size, [])
-        computer_hit = check_guess(computer_guess_row, computer_guess_col, user_ships, "Computer")
-        update_board(user_board, computer_guess_row, computer_guess_col, computer_hit)
+        computer_hit = check_guess(
+            computer_guess_row, computer_guess_col, user_ships, "Computer")
+        update_board(
+            user_board, computer_guess_row, computer_guess_col, computer_hit)
 
         print_board(user_board, title="User Grid:")
         print_board(computer_board, title="Computer Grid:")
 
-        print(f"User guessed Row {user_guess_row}, Column {user_guess_col} - {'Hit' if user_hit else 'Miss'}")
-        print(f"Computer guessed Row {computer_guess_row}, Column {computer_guess_col} - {'Hit' if computer_hit else 'Miss'}")
+        print(f"User guessed Row {user_guess_row}, Column {user_guess_col} - "
+              f"{'Hit' if user_hit else 'Miss'}")
+        print(
+            f"Computer guessed Row {computer_guess_row}, "
+            f"Column {computer_guess_col} - "
+            f"{'Hit' if computer_hit else 'Miss'}")
         print(f"Guesses remaining: {guesses_remaining}")
         print(f"User's ships remaining: {len(user_ships)}")
         print(f"Computer's ships remaining: {len(computer_ships)}")
@@ -194,6 +203,7 @@ def play_game():
         play_game()
     else:
         print("Thanks for playing!")
+
 
 if __name__ == '__main__':
     play_game()
