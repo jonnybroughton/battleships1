@@ -78,7 +78,7 @@ def update_board(board, guess_row, guess_col, hit):
     if hit:
         board[guess_row][guess_col] = 'X'
     else:
-        board[guess_row][guess_col] = ' '
+        board[guess_row][guess_col] = '-'
 
 
 def is_game_over(ships):
