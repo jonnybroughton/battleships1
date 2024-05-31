@@ -47,3 +47,9 @@ The Battleships game is designed to provide an engaging and interactive experien
 - Prompts the user to specify the number of ships to be placed on the board, ensuring it is within a valid range
 - Offers further customization, letting players choose how challenging they want the game to be
 - Validates input to maintain a reasonable game state, preventing excessive or insufficient numbers of ships
+
+### play_game()
+- Manages the overall game flow, from setting up the board and placing ships, to handling user guesses and determining the game’s end
+- Provides a seamless and structured gameplay experience
+- Ensures all game components work together correctly
+- Offers replayability by prompting the user to play again, enhancing engagement and enjoyment
