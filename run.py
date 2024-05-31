@@ -67,7 +67,6 @@ def computer_guess(size, previous_guesses):
         guess_row = random.randint(0, size - 1)
         guess_col = random.randint(0, size - 1)
         if (guess_row, guess_col) not in previous_guesses:
-            previous_guesses.append((guess_row, guess_col))
             break
     return guess_row, guess_col
 
