@@ -29,4 +29,6 @@ The Battleships game is designed to provide an engaging and interactive experien
 - Updates the game state based on the user's actions, creating a dynamic game environment
 
 ### update_board(board, guess_row, guess_col, hit)
-- Updates the game board to mark a guessed position as hit ('X') or missed (' ')
+- Updates the game board to mark a guessed position as hit ('X') or missed ('-')
+- Visually represents the results of the user’s guesses on the game board
+- Helps players keep track of their previous guesses and adjust their strategy
