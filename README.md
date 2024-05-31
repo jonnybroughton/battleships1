@@ -1,5 +1,6 @@
 # Battleships
 ![Screenshot](assets/images/command-line.png)
+
 The Battleships game is designed to provide an engaging and interactive experience for the user. Each function contributes to a specific aspect of the game, ensuring it is intuitive, challenging, and enjoyable. From creating and displaying the board to handling user input and updating the game state, every part of the program works together to deliver a cohesive and entertaining gameplay experience.
 
 ## Features and Functions
@@ -89,3 +90,24 @@ As the command line / terminal is somewhat basic and primitive in visual represe
 When moving over to the deployment of the game, the terminal is actually limited to 80 columns by 24 lines, which means that each line of text needs to be 80 characters or less or else it will be wrapped onto a second line. This presents an issue when allowing the user to input their desired size of the grid, as having information wrap to a new line disrupts how the grid is presented, making deciding on which cell to choose difficult as they fall out of alignment with the grid numbers that represent the column and row. Because of this constraint, I needed to set a limit of 10x10 grid size so the user experience isn't affected.
 
 ## Deployment
+![Screenshot](assets/images/deployment.png)
+
+The program was deployed using Heroku. Heroku is a cloud platform that could be used to deploy and run this Battleship game program, allowing users to access and play it online through a web interface.
+
+The steps used to deploy this program on Heroku are as follows:
+
+1. Login to Heroku or create an account
+2. Click 'New' and select 'Create New App'
+3. Create a name for the Heroku app and select your region
+4. Select 'Github' as the deployment method (You may be asked to sign into Github)
+5. Connect the repository your program resides in
+6. Enable Automatic Deploys or deploy manually from the 'main' branch
+7. Move to the 'Settings' tab
+8. Create a Config Var with a key of PORT and a value of 8000
+9. Scroll down to Buildpacks, and first add the Python buildpack, and then add another Buildpack, nodejs
+10. Move back to the deployment section, and click 'Deploy Branch'. Heroku will now create the app and provide a link to the deployed program with a deployment terminal with which the game can be interacted with.
+
+
+
+
+
