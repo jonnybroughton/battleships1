@@ -22,3 +22,9 @@ The Battleships game is designed to provide an engaging and interactive experien
 - Prompts the user to input their guess for a row and a column, validates the input, and handles incorrect input
 - Ensures user input is within the valid range and prevents invalid guesses
 - Provides clear feedback and re-prompts for incorrect input, enhancing the user’s interaction with the game
+
+### check_guess(guess_row, guess_col, ships)
+- Checks if the user's guess hits a ship and updates the ships list accordingly
+- Provides immediate feedback on whether a guess was successful or not, keeping the user engaged
+- Updates the game state based on the user's actions, creating a dynamic game environment
+
