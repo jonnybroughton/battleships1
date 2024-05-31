@@ -9,51 +9,61 @@ The Battleships game is designed to provide an engaging and interactive experien
 - Enables the placement of ships at random locations on the game board, ensuring each game is unique and unpredictable, which enhances replayability and challenge
 
 ### create_board(board)
+![Screenshot](assets/images/create-board.png)
 - Creates the game board as a 2D grid filled with the character '~' to represent water
 - Initializes the visual representation of the game board where players will make their guesses
 - Ensures a clean slate for each new game
 
 ### print_board(board)
+![Screenshot](assets/images/print-board.png)
 - Prints the current state of the game board to the console
 - Provides a visual display of the game board, helping players see their guesses and the status of their hits and misses
 - Includes row and column numbers to guide user input
 
-### place_ships(board, ships, num_ships)
+### place_ships(board, size, num_ships)
+![Screenshot](assets/images/place-ships.png)
 - Randomly places a specified number of ships on the game board, ensuring no two ships occupy the same space
 - Adds randomness to each game, making it challenging and replayable
 - Ensures that ships are distributed unpredictably, which enhances the strategic element of the game
 
 ### get_user_guess(size)
+![Screenshot](assets/images/get-user-guess.png)
 - Prompts the user to input their guess for a row and a column, validates the input, and handles incorrect input
 - Ensures user input is within the valid range and prevents invalid guesses
 - Provides clear feedback and re-prompts for incorrect input, enhancing the user’s interaction with the game
 
 ### check_guess(guess_row, guess_col, ships)
+![Screenshot](assets/images/check-guess.png)
 - Checks if the user's guess hits a ship and updates the ships list accordingly
 - Provides immediate feedback on whether a guess was successful or not, keeping the user engaged
 - Updates the game state based on the user's actions, creating a dynamic game environment
 
 ### update_board(board, guess_row, guess_col, hit)
+![Screenshot](assets/images/update-board.png)
 - Updates the game board to mark a guessed position as hit ('X') or missed ('-')
 - Visually represents the results of the user’s guesses on the game board
 - Helps players keep track of their previous guesses and adjust their strategy
 
 ### is_game_over(ships)
+![Screenshot](assets/images/is-game-over.png)
 - Checks if all ships have been sunk
 - Determines the end of the game, providing confirmation when the user has successfully sunk all ships
 - Signals when the game objective has been achieved, enhancing the sense of accomplishment
 
 ### get_board_size()
+![Screenshot](assets/images/get-board-size.png)
 - Prompts the user to input the size of the game board, ensuring the size is within specified constraints
 - Allows customization of the game’s difficulty and complexity
 - Ensures the board size is within a manageable range, maintaining game balance and playability
 
 ### get_num_ships(size)
+![Screenshot](assets/images/get-num-ships.png)
 - Prompts the user to specify the number of ships to be placed on the board, ensuring it is within a valid range
 - Offers further customization, letting players choose how challenging they want the game to be
 - Validates input to maintain a reasonable game state, preventing excessive or insufficient numbers of ships
 
 ### play_game()
+![Screenshot](assets/images/play-game.png)
 - Manages the overall game flow, from setting up the board and placing ships, to handling user guesses and determining the game’s end
 - Provides a seamless and structured gameplay experience
 - Ensures all game components work together correctly
