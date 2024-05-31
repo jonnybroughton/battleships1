@@ -52,7 +52,7 @@ In the game, the user is initially asked to define a grid size they wish to play
 - Visually represents the results of the user’s guesses on the game board
 - Helps players keep track of their previous guesses and adjust their strategy
 
-### is_game_over(ships)
+### is_game_over()
 ![Screenshot](assets/images/is-game-over.png)
 - Checks if all ships have been sunk
 - Determines the end of the game, providing confirmation when the user has successfully sunk all ships
@@ -64,7 +64,7 @@ In the game, the user is initially asked to define a grid size they wish to play
 - Allows customization of the game’s difficulty and complexity
 - Ensures the board size is within a manageable range, maintaining game balance and playability
 
-### get_num_ships(size)
+### get_num_ships()
 ![Screenshot](assets/images/get-num-ships.png)
 - Prompts the user to specify the number of ships to be placed on the board, ensuring it is within a valid range
 - Offers further customization, letting players choose how challenging they want the game to be
