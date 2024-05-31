@@ -13,4 +13,7 @@ The Battleships game is designed to provide an engaging and interactive experien
 - Provides a visual display of the game board, helping players see their guesses and the status of their hits and misses
 - Includes row and column numbers to guide user input
 
-
+### place_ships(board, ships, num_ships)
+- Randomly places a specified number of ships on the game board, ensuring no two ships occupy the same space
+- Adds randomness to each game, making it challenging and replayable
+- Ensures that ships are distributed unpredictably, which enhances the strategic element of the game
