@@ -17,3 +17,8 @@ The Battleships game is designed to provide an engaging and interactive experien
 - Randomly places a specified number of ships on the game board, ensuring no two ships occupy the same space
 - Adds randomness to each game, making it challenging and replayable
 - Ensures that ships are distributed unpredictably, which enhances the strategic element of the game
+
+### get_user_guess(size)
+- Prompts the user to input their guess for a row and a column, validates the input, and handles incorrect input
+- Ensures user input is within the valid range and prevents invalid guesses
+- Provides clear feedback and re-prompts for incorrect input, enhancing the user’s interaction with the game
