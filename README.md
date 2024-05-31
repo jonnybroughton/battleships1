@@ -11,39 +11,44 @@ In the game, the user is initially asked to define a grid size they wish to play
 - Imports Python's built-in random module, which provides functions to generate random numbers and perform random operations
 - Enables the placement of ships at random locations on the game board, ensuring each game is unique and unpredictable, which enhances replayability and challenge
 
-### create_board(board)
+### create_board()
 ![Screenshot](assets/images/create-board.png)
 - Creates the game board as a 2D grid filled with the character '~' to represent water
 - Initializes the visual representation of the game board where players will make their guesses
 - Ensures a clean slate for each new game
 
-### print_board(board)
+### print_board()
 ![Screenshot](assets/images/print-board.png)
 - Prints the current state of the game board to the console
 - Provides a visual display of the game board, helping players see their guesses and the status of their hits and misses
 - Includes row and column numbers to guide user input
 
-### place_ships(board, size, num_ships)
+### place_ships()
 ![Screenshot](assets/images/place-ships.png)
 - Randomly places a specified number of ships on the game board, ensuring no two ships occupy the same space
 - Adds randomness to each game, making it challenging and replayable
 - Ensures that ships are distributed unpredictably, which enhances the strategic element of the game
 
-### get_user_guess(size)
+### get_user_guess()
 ![Screenshot](assets/images/get-user-guess.png)
 - Prompts the user to input their guess for a row and a column, validates the input, and handles incorrect input
 - Ensures user input is within the valid range and prevents invalid guesses
 - Provides clear feedback and re-prompts for incorrect input, enhancing the user’s interaction with the game
 
-### check_guess(guess_row, guess_col, ships)
+### computer_guess()
+![Screenshot](assets/images/computer-guess.png)
+- Generates a computer's guess for a row and column
+- Provides an opponent for the user to play against, adding challenge and unpredictability to the game
+
+### check_guess()
 ![Screenshot](assets/images/check-guess.png)
 - Checks if the user's guess hits a ship and updates the ships list accordingly
 - Provides immediate feedback on whether a guess was successful or not, keeping the user engaged
 - Updates the game state based on the user's actions, creating a dynamic game environment
 
-### update_board(board, guess_row, guess_col, hit)
+### update_board()
 ![Screenshot](assets/images/update-board.png)
-- Updates the game board to mark a guessed position as hit ('X') or missed ('-')
+- Updates the game board to mark a guessed position as hit ('X') or missed ('*')
 - Visually represents the results of the user’s guesses on the game board
 - Helps players keep track of their previous guesses and adjust their strategy
 
@@ -67,7 +72,7 @@ In the game, the user is initially asked to define a grid size they wish to play
 
 ### play_game()
 ![Screenshot](assets/images/play-game.png)
-- Manages the overall game flow, from setting up the board and placing ships, to handling user guesses and determining the game’s end
+- Manages the overall game flow, from setting up the board and placing ships, to handling user and computer guesses and determining the game’s end
 - Provides a seamless and structured gameplay experience
 - Ensures all game components work together correctly
 - Offers replayability by prompting the user to play again, enhancing engagement and enjoyment
@@ -75,7 +80,7 @@ In the game, the user is initially asked to define a grid size they wish to play
 ## Planning
 To aid with creating the game, so that it can be recreated by someone else, I developed this flowchart that outlines the flow and decisions involved in the game.
 
-![image](assets/images/flow-diagram.jpeg)
+![image](assets/images/flowchart.png)
 
 The flowchart serves as a visual representation of the game's structure, illustrating the sequence of operations and decision points in the game. This helps developers understand the overall flow and logic of the program, making it easier to identify key components and their interactions. Additionally, the flowchart facilitates debugging and enhancement of the program by clearly mapping out each step and decision point. It acts as a guide for implementing the game, ensuring that all necessary steps are covered and properly sequenced, and enhances communication among team members by providing a clear and concise visual representation of the game's logic.
 
@@ -88,6 +93,8 @@ In the terminal, I began by setting the size for the game and the amount of ship
 The user is limited in their guesses to provide a greater challenge. If this was not implemented, the user would be able to guess infinitely and win the game every time. The amount of guesses is equal to three times the size of the board. For example, if the user wants a board size of 8 rows by 8 columns, they are given 8 * 3 = 24 guesses. This enables the user a proportionate amount of guesses while still posing the risk of running out of guesses before they have found every battleship.
 
 As the command line / terminal is somewhat basic and primitive in visual representation of the game, I felt it was necessary to include numbered markers for each row and column, which makes guessing grid numbers far easier for the user.
+
+After working with this model for some time, I felt it would be more fun for the user to actually play against a computer who is also trying to sink the user's battleships, which took some trial and error to come out as expected but now works without issue.
 
 When moving over to the deployment of the game, the terminal is actually limited to 80 columns by 24 lines, which means that each line of text needs to be 80 characters or less or else it will be wrapped onto a second line. This presents an issue when allowing the user to input their desired size of the grid, as having information wrap to a new line disrupts how the grid is presented, making deciding on which cell to choose difficult as they fall out of alignment with the grid numbers that represent the column and row. Because of this constraint, I needed to set a limit of 10x10 grid size so the user experience isn't affected.
 
