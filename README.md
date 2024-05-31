@@ -43,3 +43,7 @@ The Battleships game is designed to provide an engaging and interactive experien
 - Allows customization of the game’s difficulty and complexity
 - Ensures the board size is within a manageable range, maintaining game balance and playability
 
+### get_num_ships(size)
+- Prompts the user to specify the number of ships to be placed on the board, ensuring it is within a valid range
+- Offers further customization, letting players choose how challenging they want the game to be
+- Validates input to maintain a reasonable game state, preventing excessive or insufficient numbers of ships
