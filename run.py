@@ -90,16 +90,16 @@ def is_game_over(ships):
 
 def get_board_size():
     """
-    Ask the user to input the size of the board for the game, with constraints.
+    Ask the user to input the size of the board for the game, 
+    with a minimum of 2 and maximum of 10
     """
     while True:
         try:
-            size = int(input("Enter the board size (e.g., 8 for 8x8, "
-                             "maximum 10): "))
-            if 1 <= size <= 10:
+            size = int(input("Enter the board size (minimum 2, maximum 10): "))
+            if 2 <= size <= 10:
                 return size
             else:
-                print("Board size must be an integer between 1 and 10.")
+                print("Board size must be an integer between 2 and 10.")
         except ValueError:
             print("Invalid input, you must enter a positive integer.")
 
