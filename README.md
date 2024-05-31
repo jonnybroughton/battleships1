@@ -32,3 +32,14 @@ The Battleships game is designed to provide an engaging and interactive experien
 - Updates the game board to mark a guessed position as hit ('X') or missed ('-')
 - Visually represents the results of the user’s guesses on the game board
 - Helps players keep track of their previous guesses and adjust their strategy
+
+### is_game_over(ships)
+- Checks if all ships have been sunk
+- Determines the end of the game, providing confirmation when the user has successfully sunk all ships
+- Signals when the game objective has been achieved, enhancing the sense of accomplishment
+
+### get_board_size()
+- Prompts the user to input the size of the game board, ensuring the size is within specified constraints
+- Allows customization of the game’s difficulty and complexity
+- Ensures the board size is within a manageable range, maintaining game balance and playability
+
