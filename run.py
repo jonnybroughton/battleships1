@@ -85,12 +85,12 @@ def check_guess(guess_row, guess_col, ships, player=""):
 
 def update_board(board, guess_row, guess_col, hit):
     """
-    Update the board according to the user's guesses
+    Update the board according to the guesses
     """
     if hit:
         board[guess_row][guess_col] = 'X'
     else:
-        board[guess_row][guess_col] = '-'
+        board[guess_row][guess_col] = '*'
 
 
 def is_game_over(ships):
