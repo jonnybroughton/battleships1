@@ -68,16 +68,18 @@ def computer_guess(size, previous_guesses):
             break
     return guess_row, guess_col
 
-def check_guess(guess_row, guess_col, ships):
+def check_guess(guess_row, guess_col, ships, player=""):
     """
-    Check user's guess to see if they hit a battleship
+    Check guess to see if it hits a battleship
     """
     if (guess_row, guess_col) in ships:
-        print('You hit a battleship!\n')
+        if player:
+            print(f'{player} hit a battleship!\n')
         ships.remove((guess_row, guess_col))
         return True
     else:
-        print("You didn't hit a battleship.\n")
+        if player:
+            print(f"{player} didn't hit a battleship.\n")
         return False
 
 
