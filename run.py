@@ -8,11 +8,12 @@ def create_board(size):
     return [["~"] * size for _ in range(size)]
 
 
-def print_board(board):
+def print_board(board, title=""):
     """
     Print the current game board
     """
     size = len(board)
+    print(title)
     print("  " + " ".join(str(i) for i in range(size)))
     for idx, row in enumerate(board):
         print(f"{idx} " + " ".join(row))
