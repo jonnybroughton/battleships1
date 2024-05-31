@@ -3,6 +3,8 @@
 
 The Battleships game is designed to provide an engaging and interactive experience for the user. Each function contributes to a specific aspect of the game, ensuring it is intuitive, challenging, and enjoyable. From creating and displaying the board to handling user input and updating the game state, every part of the program works together to deliver a cohesive and entertaining gameplay experience.
 
+In the game, the user is initially asked to define a grid size they wish to play on, and then how many ships they would like to find within the grid. They must then guess a cell within the grid by providing a row number and a column number. Their guesses are limited proportionally as 3 times the size of the grid they are playing on. The game ends once the user has found all of the battleships, or when they have run out of guesses.
+
 ## Features and Functions
 
 ### import random
@@ -112,3 +114,6 @@ The steps used to deploy this program on Heroku are as follows:
 8. Create a Config Var with a key of PORT and a value of 8000
 9. Scroll down to Buildpacks, and first add the Python buildpack, and then add another Buildpack, nodejs
 10. Move back to the deployment section, and click 'Deploy Branch'. Heroku will now create the app and provide a link to the deployed program with a deployment terminal with which the game can be interacted with.
+
+The link to my deployed program can be found here:
+https://battleships-jonny-3a037b42d7a8.herokuapp.com/
