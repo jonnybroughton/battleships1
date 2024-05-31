@@ -7,3 +7,10 @@ The Battleships game is designed to provide an engaging and interactive experien
 - Creates the game board as a 2D grid filled with the character '~' to represent water
 - Initializes the visual representation of the game board where players will make their guesses
 - Ensures a clean slate for each new game
+
+### print_board(board)
+- Prints the current state of the game board to the console
+- Provides a visual display of the game board, helping players see their guesses and the status of their hits and misses
+- Includes row and column numbers to guide user input
+
+
