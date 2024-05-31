@@ -89,6 +89,12 @@ As the command line / terminal is somewhat basic and primitive in visual represe
 
 When moving over to the deployment of the game, the terminal is actually limited to 80 columns by 24 lines, which means that each line of text needs to be 80 characters or less or else it will be wrapped onto a second line. This presents an issue when allowing the user to input their desired size of the grid, as having information wrap to a new line disrupts how the grid is presented, making deciding on which cell to choose difficult as they fall out of alignment with the grid numbers that represent the column and row. Because of this constraint, I needed to set a limit of 10x10 grid size so the user experience isn't affected.
 
+### PEP8 Testing
+
+To ensure that the code is clean, readable, and maintainable, it is imperative that the code fits within the PEP8 style guidelines. To make sure my project aligns with these standards, I have made use of a python linter. When pasted in, we can see that my code fits within these guidelines and does not bring up any errors.
+
+![Screenshot](assets/images/linter.png)
+
 ## Deployment
 ![Screenshot](assets/images/deployment.png)
 
@@ -106,8 +112,3 @@ The steps used to deploy this program on Heroku are as follows:
 8. Create a Config Var with a key of PORT and a value of 8000
 9. Scroll down to Buildpacks, and first add the Python buildpack, and then add another Buildpack, nodejs
 10. Move back to the deployment section, and click 'Deploy Branch'. Heroku will now create the app and provide a link to the deployed program with a deployment terminal with which the game can be interacted with.
-
-
-
-
-

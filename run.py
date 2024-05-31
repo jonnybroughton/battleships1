@@ -90,7 +90,7 @@ def is_game_over(ships):
 
 def get_board_size():
     """
-    Ask the user to input the size of the board for the game, 
+    Ask the user to input the size of the board for the game,
     with a minimum of 2 and maximum of 10
     """
     while True:
